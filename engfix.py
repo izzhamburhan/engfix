@@ -18,7 +18,7 @@ def getLLamaResponse(input_text, no_words, blog_style) :
                 instruction : ''' {blog_style}'''
                 no. of words : ''' {no_words} '''
 
-
+                    
                 if the instruction is 'fix' , fix the grammer in the text and response within {no_words} words
                 else if the instruction is 'reply' , reply the text in professional english within {no_words}
 
@@ -43,7 +43,7 @@ st.set_page_config(page_title="EngFix",
 
 st.header('EngFix 🤖')
 
-input_text = st.text_input("Enter your text...")
+input_text = st.text_area("Enter your text...")
 
 ## Craeting two more columns for additional 2 fields
 col1, col2 = st.columns([5,5])
@@ -59,6 +59,7 @@ with col2:
 submit = st.button('Generate')
 
 
+st.text('Response :')
 ## Final Response
 if submit:
     st.write(getLLamaResponse(input_text, no_words, blog_style))
